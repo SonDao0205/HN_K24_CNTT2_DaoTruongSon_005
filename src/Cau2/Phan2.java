@@ -3,21 +3,21 @@ package Cau2;
 public class Phan2 {
     public static void main(String[] args) {
         int[] array = {-2,1,-3,4,-1,2,1,-5,4};
-        int max = array[0];
-        boolean flag = false;
-        int left = 0;
-        int sum = array[left];
-        int right = left +1;
-        int i = 1;
-        while(right < array.length){
-            System.out.println("turn : " + i++);
-            sum += array[right];
-            if(right >= array.length){
-                left++;
-                right = left + 1;
-                sum = array[left];
+        int sumMax = array[0];
+        int sum = array[0];
+
+        for(int i = 1; i < array.length; i++) {
+            if(sum + array[i] > array[i]) {
+                sum = sum + array[i];
+            } else {
+                sum = array[i];
+            }
+
+            if(sum > sumMax) {
+                sumMax = sum;
             }
         }
-        System.out.println("Max  : " + max);
+
+        System.out.println("Max : " + sumMax);
     }
 }
